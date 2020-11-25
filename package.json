@@ -21,6 +21,7 @@
     "ejs": "^3.1.5",
     "experss": "0.0.1-security",
     "mongoose": "^5.10.15",
+    "nodemon": "^2.0.6",
     "passport": "^0.4.1"
   }
 }
