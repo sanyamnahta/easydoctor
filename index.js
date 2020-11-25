@@ -108,6 +108,26 @@ app.get("/clinic", function(req, res){
 	res.render("clinic");
 })
 
+app.get("/cliniclogin", function(req, res){
+	res.render("cliniclogin");
+})
+
+app.get("/clinicregister", function(req, res){
+	res.render("clinicregister");
+})
+
+app.get("/patient", function(req, res){
+	res.render("patient");
+})
+
+app.get("/patientregister", function(req, res){
+	res.render("patientregister");
+})
+
+app.get("/patientlogin", function(req, res){
+	res.render("patientlogin");
+})
+
 app.post("/clinic-register", function(req, res){
 	
 	var clinicName = req.body.clinicName;
