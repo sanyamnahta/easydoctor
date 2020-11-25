@@ -1,0 +1,150 @@
+.header{
+    color: #adcdff;
+    font-size: 40px;
+    font-family: 'Josefin Sans', sans-serif;
+    padding-left: 100px;
+    padding-top: 80px;
+    }
+    
+    
+    
+    .btn-group button {
+      background-color: #a2c4fc;
+      border: 1px solid #a2c4fc; /* Green border */
+      color: #162c4f; /* White text */
+      padding: 10px 24px; /* Some padding */
+      cursor: pointer; /* Pointer/hand icon */
+      float: left; /* Float the buttons side by side */
+    }
+    
+    /* Clear floats (clearfix hack) */
+    .btn-group:after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+    
+    .btn-group button:not(:last-child) {
+      border-right: none; /* Prevent double borders */
+    }
+    
+    /* Add a background color on hover */
+    .btn-group button:hover {
+      background-color: #5f96ed;
+    }
+    
+    .btn-group{
+    padding-left:100px;
+    }
+    body {
+      background-image: url('/images/lb.jpeg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 100% 100%;
+    
+    }
+    
+    
+    
+    @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400);
+    body{
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight:300;
+      background-color:lightblue;
+      color:#FFF;
+    }
+    section{
+      text-align:center;
+      padding-top:400px;
+      color: #bad0f5;
+      font-family: 'Source Sans Pro', sans-serif;
+    
+    }
+    .footer #button{
+        width:35px;
+        height:35px;
+        border: #abcaff 12px solid;
+        border-radius:35px;
+        margin:0 auto;
+        position:relative;
+        -webkit-transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        -o-transition: all 1s ease;
+        -ms-transition: all 1s ease;
+        transition: all 1s ease;
+    }
+    .footer #button:hover{
+        width:35px;
+        height:35px;
+        border: #abcaff 12px solid;
+        -webkit-transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        -o-transition: all 1s ease;
+        -ms-transition: all 1s ease;
+        transition: all 1s ease;
+        position:relative;
+    }
+    .footer {
+        bottom:0;
+        left:0;
+        position:fixed;
+        width: 100%;
+        height: 2em;
+        overflow:hidden;
+        margin:0 auto;
+        -webkit-transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        -o-transition: all 1s ease;
+        -ms-transition: all 1s ease;
+        transition: all 1s ease;
+        z-index:999;
+    }
+    .footer:hover {
+        -webkit-transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        -o-transition: all 1s ease;
+        -ms-transition: all 1s ease;
+        transition: all 1s ease;
+        height: 10em;
+    }
+    .footer #container{
+        margin-top:5px;
+        width:100%;
+    height:100%;
+      position:relative;
+      top:0;
+      left:0;
+        background: #abcaff;
+    }
+    .footer #cont{
+      position:relative;
+      top:-45px;
+      right:190px;
+        width:150px;
+        height:auto;
+        margin:0 auto;
+    }
+    .footer_center{
+        width:500px;
+        float:left;
+      text-align:center;
+    }
+    .footer h3{
+        font-family: 'Helvetica';
+        font-size: 20px;
+        font-weight: 100;
+        margin-top:70px;
+        margin-left:40px;
+        color:#162c4f;
+    }
+    
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      border: 1px solid #ddd;
+    }
+    
+    th, td {
+      text-align:  center;
+      padding: 16px;
+    }

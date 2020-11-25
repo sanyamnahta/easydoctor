@@ -90,13 +90,23 @@ var clinicSchema = new mongoose.Schema({
 
 var clinic = mongoose.model("clinic", clinicSchema);
 
+var patientSchema = new mongoose.Schema({
+	name: String,
+	city: String,
+	address: String,
+	contact: Number,
+	age: Number,
+	gender: String,
+});
 
-var clinicSampleData = [
-		{clinicName: "arpit dental", city: "sirsa",address: "f block",contact: "9383834834",fees: "200",
-		 category: "dentist",emergencyServ: "no", appTime: "2pm-4pm"},
-		{clinicName: "pushkar ortho", city: "banaras",address: "d block",contact: "9381234834",fees: "500",
-		 category: "ortho",emergencyServ: "yes", appTime: "5pm-6pm"}
-	]
+var patient = mongoose.model("patient", patientSchema);
+
+// var clinicSampleData = [
+// 		{clinicName: "arpit dental", city: "sirsa",address: "f block",contact: "9383834834",fees: "200",
+// 		 category: "dentist",emergencyServ: "no", appTime: "2pm-4pm"},
+// 		{clinicName: "pushkar ortho", city: "banaras",address: "d block",contact: "9381234834",fees: "500",
+// 		 category: "ortho",emergencyServ: "yes", appTime: "5pm-6pm"}
+// 	]
 
 //====================================================routes==================================================================
 
@@ -116,8 +126,18 @@ app.get("/clinicregister", function(req, res){
 	res.render("clinicregister");
 })
 
-app.get("/patient", function(req, res){
-	res.render("patient");
+// app.get("/patient", function(req, res){
+// 	res.render("patient");
+// })
+
+app.get("/patient", async function(req, res){
+	clinic.find({}, function(err, allClinic){
+		if(err){
+			console.log(err);
+		} else{
+			res.render("patient",{clinic: allClinic});		
+		}
+	})
 })
 
 app.get("/patientregister", function(req, res){
@@ -128,7 +148,7 @@ app.get("/patientlogin", function(req, res){
 	res.render("patientlogin");
 })
 
-app.post("/clinic-register", function(req, res){
+app.post("/clinicregister", function(req, res){
 	
 	var clinicName = req.body.clinicName;
 	var city = req.body.city;
@@ -137,9 +157,9 @@ app.post("/clinic-register", function(req, res){
 	var appTime = req.body.appTime;
 	var emergencyServ = req.body.emergencyServ;
 	var contact = req.body.contact;
+	var address = req.body.address;
 	
-	
-	var newClinic = {clinicName: clinicName, city: city, fees: fees, category: category, contact: contact, appTime: appTime, emergencyServ: emergencyServ}
+	var newClinic = {clinicName: clinicName, city: city, fees: fees, category: category, contact: contact, appTime: appTime, emergencyServ: emergencyServ, address: address}
 	//create and save to the database
 	clinic.create(newClinic, function(err, newlyCreated){
 		if(err){
@@ -150,6 +170,29 @@ app.post("/clinic-register", function(req, res){
 		}
 	})
 })
+
+app.post("/patientregister", function(req, res){
+	
+	var name = req.body.name;
+	var city = req.body.city;
+	var age = req.body.age;
+	var address = req.body.address;
+	var gender = req.body.gender;
+	var contact = req.body.contact;
+
+	
+	var newPatient = {name: name, city: city, age: age, address: address, contact: contact, gender: gender}
+	//create and save to the database
+	patient.create(newPatient, function(err, newlyCreated){
+		if(err){
+			console.log(err);
+		} else{
+			//redirect
+			res.redirect("/patient");		
+		}
+	})
+})
+
 
 app.listen(process.env.PORT || 3000, function(){
      console.log("congo Server has started!!");
