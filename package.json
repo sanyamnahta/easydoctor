@@ -1,0 +1,26 @@
+{
+  "name": "easydoctor",
+  "version": "1.0.0",
+  "description": "haskshetra",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanyamnahta/easydoctor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sanyamnahta/easydoctor/issues"
+  },
+  "homepage": "https://github.com/sanyamnahta/easydoctor#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.5",
+    "experss": "0.0.1-security",
+    "mongoose": "^5.10.15",
+    "passport": "^0.4.1"
+  }
+}
