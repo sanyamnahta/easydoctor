@@ -4,14 +4,18 @@ var bodyParser    = require("body-parser");
 var	mongoose      = require("mongoose");
 var passport      = require("passport");
 var LocalStrategy = require("passport-local");
-var	User          = require("./models/user");
+var	User          = require("./model/user");
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine" , "ejs");
 app.use(express.static("public"));
 
-var mongoURI = "mongodb+srv://pushvish111:Pushkar@4853@cluster0.pmqiw.mongodb.net/hackshetra?retryWrites=true&w=majority"; 
-mongoose.connect(mongoURI, {useUnifiedTopology: true}, function(err){
+var mongoURI = "mongodb+srv://mrhashcoder:mansi8101@node.zafk9.mongodb.net/hackathon?retryWrites=true&w=majority"; 
+mongoose.connect(mongoURI, {
+	useCreateIndex : true,
+	useNewUrlParser:true,
+	useUnifiedTopology:true,
+}, function(err){
     if(err){
         console.log(err);
     } else{
@@ -86,11 +90,6 @@ var clinicSchema = new mongoose.Schema({
 
 var clinic = mongoose.model("clinic", clinicSchema);
 
-mongoose.connect("mongodb://localhost/doctor_easy" , {
-	useCreateIndex : true,
-	useNewUrlParser:true,
-	useUnifiedTopology:true,
-});
 
 var clinicSampleData = [
 		{clinicName: "arpit dental", city: "sirsa",address: "f block",contact: "9383834834",fees: "200",
@@ -135,16 +134,3 @@ app.post("/clinic-register", function(req, res){
 app.listen(process.env.PORT || 3000, function(){
      console.log("congo Server has started!!");
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
