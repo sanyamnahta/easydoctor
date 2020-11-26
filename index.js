@@ -25,7 +25,7 @@ mongoose.connect(mongoURI, {
 
 //======================================================authentication===============================================================
 app.use(require('express-session')({
-	secret: "pv",
+	secret: "elite",
 	resave: false,
 	saveUninitialized: false
 }));
@@ -115,7 +115,13 @@ app.get("/", function(req, res){
 })
 
 app.get("/clinic", function(req, res){
-	res.render("clinic");
+	patient.find({}, function(err, allPatient){
+		if(err){
+			console.log(err);
+		} else{
+			res.render("clinic",{patient: allPatient});		
+		}
+	})	
 })
 
 app.get("/cliniclogin", function(req, res){
@@ -189,6 +195,27 @@ app.post("/patientregister", function(req, res){
 		} else{
 			//redirect
 			res.redirect("/patient");		
+		}
+	})
+})
+
+app.post("/newOPD", function(req, res){
+	
+	var name = req.body.name;
+	var city = req.body.city;
+	var age = req.body.age;
+	var address = req.body.address;
+	var gender = req.body.gender;
+	var contact = req.body.contact;
+
+	var newPatient = {name: name, city: city, age: age, address: address, contact: contact, gender: gender}
+	//create and save to the database
+	patient.create(newPatient, function(err, newlyCreated){
+		if(err){
+			console.log(err);
+		} else{
+			//redirect
+			res.redirect("/clinic");		
 		}
 	})
 })
